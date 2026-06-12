@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zatz Partners — Premium Real Estate Advisory</title>
+  <meta name="description" content="Discreet, strategic, and value-led residential lettings and property development advisory. London-based, internationally active.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Page Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__logo">ZATZ<span>PARTNERS</span></div>
+      <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-text">ZATZ<span class="nav__logo-accent">PARTNERS</span></span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+        <li class="nav__has-dropdown">
+          <a href="services.html" class="nav__link">Services <span class="nav__chevron">&#8964;</span></a>
+          <div class="nav__dropdown">
+            <a href="lettings.html" class="nav__dropdown-item">Residential Lettings</a>
+            <a href="property-development.html" class="nav__dropdown-item">Property Development</a>
+            <a href="services.html#sales" class="nav__dropdown-item">Sales &amp; Disposals</a>
+          </div>
+        </li>
+        <li><a href="landlords.html" class="nav__link">Landlords</a></li>
+        <li><a href="tenants.html" class="nav__link">Tenants</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="tel:+447985585328" class="nav__phone">+44 7985 585 328</a>
+        <a href="contact.html" class="btn btn--gold btn--sm">Get in Touch</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <ul class="mobile-menu__list">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="lettings.html">Lettings</a></li>
+        <li><a href="property-development.html">Property Development</a></li>
+        <li><a href="landlords.html">Landlords</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="tel:+447985585328" class="mobile-menu__phone">+44 7985 585 328</a>
+    </div>
+  </div>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__bg-img"></div>
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__body">
+      <div class="container">
+        <p class="hero__eyebrow">London · UK &amp; International</p>
+        <h1 class="hero__title">
+          <span class="hero__line">Your Trusted</span>
+          <span class="hero__line italic">Real Estate</span>
+          <span class="hero__line">Partner</span>
+        </h1>
+        <p class="hero__sub">Discreet, strategic, and value-led advisory<br>for landlords, investors, and developers — across the UK and beyond.</p>
+        <div class="hero__cta-row">
+          <a href="services.html" class="btn btn--gold btn--lg">Explore Services</a>
+          <a href="contact.html" class="btn btn--ghost btn--lg">Speak to an Advisor</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar (Emaar-style) -->
+    <div class="hero__search-wrap" id="hero-search">
+      <div class="search-bar">
+        <div class="search-bar__field">
+          <label>Service Type</label>
+          <select>
+            <option>Residential Lettings</option>
+            <option>Property Development</option>
+            <option>Sales &amp; Disposals</option>
+          </select>
+        </div>
+        <div class="search-bar__sep"></div>
+        <div class="search-bar__field">
+          <label>Location</label>
+          <select>
+            <option>All Locations</option>
+            <option>London</option>
+            <option>South East</option>
+            <option>Nationwide</option>
+            <option>International</option>
+          </select>
+        </div>
+        <div class="search-bar__sep"></div>
+        <div class="search-bar__field">
+          <label>Budget Range</label>
+          <select>
+            <option>Any Budget</option>
+            <option>&#163;500k – &#163;1M</option>
+            <option>&#163;1M – &#163;5M</option>
+            <option>&#163;5M – &#163;20M</option>
+            <option>&#163;20M+</option>
+          </select>
+        </div>
+        <div class="search-bar__sep"></div>
+        <div class="search-bar__field">
+          <label>Property Type</label>
+          <select>
+            <option>All Types</option>
+            <option>Residential</option>
+            <option>Mixed Use</option>
+            <option>Development Site</option>
+          </select>
+        </div>
+        <a href="contact.html" class="search-bar__btn">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="6"/><path d="m16 16-3.5-3.5" stroke-linecap="round"/></svg>
+          <span>Search</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__row">
+        <span>Residential Lettings</span><span class="marquee__sep">&#9670;</span>
+        <span>Property Development Advisory</span><span class="marquee__sep">&#9670;</span>
+        <span>Sales &amp; Disposals</span><span class="marquee__sep">&#9670;</span>
+        <span>Capital Preservation</span><span class="marquee__sep">&#9670;</span>
+        <span>Strategic Advisory</span><span class="marquee__sep">&#9670;</span>
+        <span>UK &amp; International</span><span class="marquee__sep">&#9670;</span>
+        <span>Landlord Services</span><span class="marquee__sep">&#9670;</span>
+        <span>Tenant Placement</span><span class="marquee__sep">&#9670;</span>
+        <!-- duplicate for seamless loop -->
+        <span>Residential Lettings</span><span class="marquee__sep">&#9670;</span>
+        <span>Property Development Advisory</span><span class="marquee__sep">&#9670;</span>
+        <span>Sales &amp; Disposals</span><span class="marquee__sep">&#9670;</span>
+        <span>Capital Preservation</span><span class="marquee__sep">&#9670;</span>
+        <span>Strategic Advisory</span><span class="marquee__sep">&#9670;</span>
+        <span>UK &amp; International</span><span class="marquee__sep">&#9670;</span>
+        <span>Landlord Services</span><span class="marquee__sep">&#9670;</span>
+        <span>Tenant Placement</span><span class="marquee__sep">&#9670;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ SERVICES -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="label">What We Do</p>
+        <h2 class="section-title">Comprehensive Real Estate<br><em>Advisory Services</em></h2>
+        <p class="section-body">We bring institutional discipline to private real estate — whether you are a landlord protecting yield, a developer structuring strategy, or an investor planning an exit.</p>
+      </div>
+      <div class="services__grid">
+        <article class="s-card reveal-up" data-delay="0.05">
+          <div class="s-card__num">01</div>
+          <div class="s-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 40V20L24 8l16 12v20H30V28h-8v12H8z"/></svg>
+          </div>
+          <h3 class="s-card__title">Residential Lettings</h3>
+          <p class="s-card__text">Professionally managed lettings that prioritise regulatory compliance, tenant due diligence, and long-term yield preservation for discerning landlords.</p>
+          <ul class="s-card__list">
+            <li>Let Only &amp; Fully Managed</li>
+            <li>Rigorous Tenant Screening</li>
+            <li>Full Regulatory Compliance</li>
+            <li>Yield Optimisation</li>
+          </ul>
+          <a href="lettings.html" class="s-card__cta">Learn More <span aria-hidden="true">&#8594;</span></a>
+        </article>
+        <article class="s-card reveal-up" data-delay="0.15">
+          <div class="s-card__num">02</div>
+          <div class="s-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="18" width="36" height="24" rx="1"/><path d="M16 18V12a8 8 0 0 1 16 0v6"/><line x1="24" y1="28" x2="24" y2="34"/></svg>
+          </div>
+          <h3 class="s-card__title">Property Development Advisory</h3>
+          <p class="s-card__text">From feasibility through completion — guiding private developers, landowners, and family offices toward commercially sound and capital-preserving strategies.</p>
+          <ul class="s-card__list">
+            <li>Feasibility Assessments</li>
+            <li>Planning Strategy</li>
+            <li>Capital Preservation Focus</li>
+            <li>Exit &amp; Income Planning</li>
+          </ul>
+          <a href="property-development.html" class="s-card__cta">Learn More <span aria-hidden="true">&#8594;</span></a>
+        </article>
+        <article class="s-card reveal-up" data-delay="0.25">
+          <div class="s-card__num">03</div>
+          <div class="s-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 36l8-8 6 6 10-12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="38" cy="12" r="4"/><line x1="6" y1="6" x2="30" y2="6" stroke-linecap="round"/><line x1="6" y1="42" x2="42" y2="42" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="s-card__title">Sales &amp; Disposals</h3>
+          <p class="s-card__text">Strategic property exits executed with precision — precise pricing, thorough buyer qualification, and optimal market timing to protect and maximise returns.</p>
+          <ul class="s-card__list">
+            <li>Strategic Exit Planning</li>
+            <li>Buyer Qualification</li>
+            <li>Market Timing Analysis</li>
+            <li>Portfolio Restructuring</li>
+          </ul>
+          <a href="services.html#sales" class="s-card__cta">Learn More <span aria-hidden="true">&#8594;</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ ABOUT -->
+  <section class="about section" id="about">
+    <div class="about__grid">
+      <div class="about__visual">
+        <div class="about__img" id="about-img"></div>
+        <div class="about__badge">
+          <span class="about__badge-num counter" data-target="15">0</span>
+          <span class="about__badge-text">Years of<br>Excellence</span>
+        </div>
+      </div>
+      <div class="about__copy">
+        <p class="label reveal-up">Who We Are</p>
+        <h2 class="section-title reveal-up" data-delay="0.08">Advisory Built on<br><em>Discretion &amp; Depth</em></h2>
+        <p class="about__para reveal-up" data-delay="0.14">Zatz Partners is a London-based real estate advisory firm serving landlords, investors, and developers across the United Kingdom and internationally. Our work is defined not by volume, but by the rigour of our thinking and the quality of our relationships.</p>
+        <p class="about__para reveal-up" data-delay="0.2">We understand that real estate decisions carry lasting consequences. Our approach combines institutional discipline with genuine personal service — ensuring every client receives not just execution, but strategic clarity.</p>
+        <div class="about__pillars reveal-up" data-delay="0.26">
+          <div class="pillar"><span class="pillar__icon">&#9670;</span><div><strong>Discreet</strong><p>Confidentiality is foundational to everything we do.</p></div></div>
+          <div class="pillar"><span class="pillar__icon">&#9670;</span><div><strong>Strategic</strong><p>We think beyond the transaction to the full lifecycle.</p></div></div>
+          <div class="pillar"><span class="pillar__icon">&#9670;</span><div><strong>Value-Led</strong><p>Capital preservation guides every recommendation.</p></div></div>
+        </div>
+        <a href="about.html" class="btn btn--dark reveal-up" data-delay="0.32">About Zatz Partners</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ STATS -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat reveal-up" data-delay="0.05">
+          <div class="stat__num"><span class="counter" data-target="500">0</span><span>+</span></div>
+          <div class="stat__label">Properties Managed</div>
+        </div>
+        <div class="stat reveal-up" data-delay="0.12">
+          <div class="stat__num"><span class="counter" data-target="98">0</span><span>%</span></div>
+          <div class="stat__label">Client Retention</div>
+        </div>
+        <div class="stat reveal-up" data-delay="0.19">
+          <div class="stat__num"><span class="counter" data-target="15">0</span><span>+</span></div>
+          <div class="stat__label">Years Experience</div>
+        </div>
+        <div class="stat reveal-up" data-delay="0.26">
+          <div class="stat__num">&#163;<span class="counter" data-target="250">0</span><span>M+</span></div>
+          <div class="stat__label">Assets Under Advisory</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PROCESS -->
+  <section class="process section" id="process">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <p class="label">How We Work</p>
+        <h2 class="section-title">A Process Built for<br><em>Precision</em></h2>
+      </div>
+      <div class="process__steps">
+        <div class="process__step reveal-up" data-delay="0.05">
+          <div class="process__num">01</div>
+          <div class="process__connector"></div>
+          <h4>Initial Consultation</h4>
+          <p>A confidential conversation to understand your objectives, portfolio, and timelines — no obligation, no pressure.</p>
+        </div>
+        <div class="process__step reveal-up" data-delay="0.13">
+          <div class="process__num">02</div>
+          <div class="process__connector"></div>
+          <h4>Strategic Assessment</h4>
+          <p>Thorough analysis of your asset, market position, and opportunity — producing a clear advisory brief.</p>
+        </div>
+        <div class="process__step reveal-up" data-delay="0.21">
+          <div class="process__num">03</div>
+          <div class="process__connector"></div>
+          <h4>Tailored Strategy</h4>
+          <p>A bespoke strategy aligned to your capital objectives — from lettings management to full development advisory.</p>
+        </div>
+        <div class="process__step reveal-up" data-delay="0.29">
+          <div class="process__num">04</div>
+          <h4>Execution &amp; Support</h4>
+          <p>We implement, manage, and continuously optimise — remaining your partner through every stage of the lifecycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ INTERNATIONAL -->
+  <section class="international" id="international">
+    <div class="international__bg"></div>
+    <div class="international__overlay"></div>
+    <div class="container international__body">
+      <p class="label reveal-up" style="color:rgba(201,169,110,0.9)">Our Reach</p>
+      <h2 class="section-title reveal-up" data-delay="0.08" style="color:#fff">UK-Based.<br><em>Internationally Active.</em></h2>
+      <p class="international__sub reveal-up" data-delay="0.16">From our London base we advise clients with assets and ambitions across Europe, the Middle East, and beyond. Our network spans borders — our standards do not.</p>
+      <div class="market-tags reveal-up" data-delay="0.24">
+        <span class="mtag">United Kingdom</span>
+        <span class="mtag">Europe</span>
+        <span class="mtag">Middle East</span>
+        <span class="mtag">North Africa</span>
+        <span class="mtag">South Asia</span>
+      </div>
+      <a href="contact.html" class="btn btn--gold btn--lg reveal-up" data-delay="0.32">Speak to Our Team</a>
+    </div>
+  </section>
+
+  <!-- ============================================================ SPLIT CTA -->
+  <section class="split-cta">
+    <div class="split-cta__panel split-cta__panel--l">
+      <div class="split-cta__bg split-cta__bg--l"></div>
+      <div class="split-cta__content reveal-up">
+        <p class="label">Landlords</p>
+        <h3>Your Asset.<br>Our Expertise.</h3>
+        <p>We manage your property with rigour and discretion — maximising returns while minimising regulatory and tenancy risk.</p>
+        <a href="landlords.html" class="btn btn--gold">Landlord Services &#8594;</a>
+      </div>
+    </div>
+    <div class="split-cta__panel split-cta__panel--r">
+      <div class="split-cta__bg split-cta__bg--r"></div>
+      <div class="split-cta__content reveal-up" data-delay="0.1">
+        <p class="label">Tenants</p>
+        <h3>Your Home.<br>Our Commitment.</h3>
+        <p>Quality, professionally managed properties with a transparent and supportive tenancy experience from start to finish.</p>
+        <a href="tenants.html" class="btn btn--outline-white">Tenant Services &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CONTACT CTA -->
+  <section class="cta-band section">
+    <div class="container">
+      <div class="cta-band__inner reveal-up">
+        <p class="label">Get Started</p>
+        <h2 class="section-title">Ready to Work<br><em>With Us?</em></h2>
+        <p class="cta-band__sub">Whether you are a landlord, developer, or investor — a confidential conversation costs nothing.</p>
+        <div class="cta-band__btns">
+          <a href="contact.html" class="btn btn--gold btn--lg">Get in Touch</a>
+          <a href="tel:+447985585328" class="btn btn--outline btn--lg">+44 7985 585 328</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">ZATZ<span>PARTNERS</span></div>
+          <p class="footer__strapline">Discreet. Strategic. Value-Led.</p>
+          <p class="footer__about">London-based real estate advisory for landlords, investors, and developers across the UK and internationally.</p>
+          <a href="tel:+447985585328" class="footer__tel">+44 7985 585 328</a>
+        </div>
+        <div class="footer__col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="lettings.html">Residential Lettings</a></li>
+            <li><a href="property-development.html">Property Development</a></li>
+            <li><a href="services.html#sales">Sales &amp; Disposals</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="landlords.html">Landlords</a></li>
+            <li><a href="tenants.html">Tenants</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Contact</h5>
+          <ul>
+            <li>London, United Kingdom</li>
+            <li><a href="tel:+447985585328">+44 7985 585 328</a></li>
+            <li><a href="contact.html">Enquiry Form</a></li>
+          </ul>
+          <div class="footer__socials">
+            <a href="#" aria-label="LinkedIn" class="fsocial">LI</a>
+            <a href="#" aria-label="Instagram" class="fsocial">IG</a>
+            <a href="#" aria-label="X / Twitter" class="fsocial">TW</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Zatz Partners. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
