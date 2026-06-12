@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Zatz Partners</title>
+  <meta name="description" content="Get in touch with Zatz Partners for a confidential conversation about your real estate objectives.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/inner.css">
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__container">
+      <a href="index.html" class="nav__logo"><span class="nav__logo-text">ZATZ<span class="nav__logo-accent">PARTNERS</span></span></a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+        <li class="nav__has-dropdown">
+          <a href="services.html" class="nav__link">Services <span class="nav__chevron">&#8964;</span></a>
+          <div class="nav__dropdown">
+            <a href="lettings.html" class="nav__dropdown-item">Residential Lettings</a>
+            <a href="property-development.html" class="nav__dropdown-item">Property Development</a>
+            <a href="services.html#sales" class="nav__dropdown-item">Sales &amp; Disposals</a>
+          </div>
+        </li>
+        <li><a href="landlords.html" class="nav__link">Landlords</a></li>
+        <li><a href="tenants.html" class="nav__link">Tenants</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="tel:+447985585328" class="nav__phone">+44 7985 585 328</a>
+        <a href="contact.html" class="btn btn--gold btn--sm">Get in Touch</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <ul class="mobile-menu__list">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="lettings.html">Lettings</a></li>
+        <li><a href="property-development.html">Property Development</a></li>
+        <li><a href="landlords.html">Landlords</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="tel:+447985585328" class="mobile-menu__phone">+44 7985 585 328</a>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80')"></div>
+    <div class="container">
+      <p class="label page-hero__label reveal-up">Get In Touch</p>
+      <h1 class="page-hero__title reveal-up" data-delay="0.08">A Confidential<br><em>Conversation.</em></h1>
+      <p class="page-hero__sub reveal-up" data-delay="0.16">Whether you are exploring options or ready to engage — we welcome the opportunity to understand your objectives. No obligation. No pressure.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Info -->
+  <section class="content-block">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <div>
+            <p class="label">London, United Kingdom</p>
+            <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">We Are<br><em>Ready to Help.</em></h2>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail__label">Telephone</span>
+            <div class="contact-detail__val"><a href="tel:+447985585328">+44 7985 585 328</a></div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail__label">Email</span>
+            <div class="contact-detail__val"><a href="mailto:info@zatzpartners.co.uk">info@zatzpartners.co.uk</a></div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail__label">Location</span>
+            <div class="contact-detail__val">London, United Kingdom<br><span style="font-size:0.85rem;color:var(--grey-3)">Serving clients nationally &amp; internationally</span></div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail__label">Office Hours</span>
+            <div class="contact-detail__val" style="font-size:0.9rem">Monday – Friday: 9:00 – 18:00<br>Weekends: By appointment</div>
+          </div>
+        </div>
+
+        <div class="reveal-up" data-delay="0.1">
+          <form class="form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first_name" required autocomplete="given-name">
+              </div>
+              <div class="form-field">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last_name" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="service">Service of Interest</label>
+              <select id="service" name="service">
+                <option value="">Please select...</option>
+                <option>Residential Lettings</option>
+                <option>Property Development Advisory</option>
+                <option>Sales &amp; Disposals</option>
+                <option>Landlord Services</option>
+                <option>Tenant Services</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" required placeholder="Please describe your objectives or enquiry..."></textarea>
+            </div>
+            <p class="form__note">By submitting this form you consent to Zatz Partners contacting you regarding your enquiry. Your information will never be shared with third parties.</p>
+            <button type="submit" class="btn btn--gold btn--lg" style="align-self:flex-start">Send Enquiry &#8594;</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">ZATZ<span>PARTNERS</span></div>
+          <p class="footer__strapline">Discreet. Strategic. Value-Led.</p>
+          <p class="footer__about">London-based real estate advisory for landlords, investors, and developers.</p>
+          <a href="tel:+447985585328" class="footer__tel">+44 7985 585 328</a>
+        </div>
+        <div class="footer__col"><h5>Services</h5><ul><li><a href="lettings.html">Residential Lettings</a></li><li><a href="property-development.html">Property Development</a></li><li><a href="services.html#sales">Sales &amp; Disposals</a></li></ul></div>
+        <div class="footer__col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="landlords.html">Landlords</a></li><li><a href="tenants.html">Tenants</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer__col"><h5>Contact</h5><ul><li>London, United Kingdom</li><li><a href="tel:+447985585328">+44 7985 585 328</a></li></ul><div class="footer__socials"><a href="#" class="fsocial" aria-label="LinkedIn">LI</a><a href="#" class="fsocial" aria-label="Instagram">IG</a><a href="#" class="fsocial" aria-label="Twitter">TW</a></div></div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Zatz Partners. All rights reserved.</p>
+        <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('[type="submit"]');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = 'var(--navy)';
+      btn.style.color = 'var(--white)';
+      btn.disabled = true;
+    });
+  </script>
+</body>
+</html>
