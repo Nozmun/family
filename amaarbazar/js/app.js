@@ -14,7 +14,8 @@
   /* ---- sticky nav + mobile menu ---- */
   function initNav(){
     const nav = $('.nav');
-    const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 40);
+    const startsScrolled = nav && nav.classList.contains('scrolled');
+    const onScroll = () => nav && nav.classList.toggle('scrolled', startsScrolled || window.scrollY > 40);
     onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
     const burger = $('.nav__burger'), mobile = $('.nav__mobile');
     if(burger && mobile){
