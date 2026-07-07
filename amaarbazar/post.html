@@ -2,27 +2,32 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Post an Ad — AmaarBazar</title>
-<meta name="description" content="Post your ad on AmaarBazar and reach thousands of buyers across Bangladesh. Boost with bKash, Nagad or card.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e8e8a">
+<title>Post an Ad — AmaarBazaar</title>
+<meta name="description" content="Post your ad on AmaarBazaar and reach thousands of buyers across Bangladesh. Boost with bKash, Nagad or card.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
 
 <header class="nav scrolled">
   <div class="container nav__bar">
     <a href="index.html" class="logo">
-      <span class="logo__mark">A</span>
-      <span><span class="logo__text">Amaar<b>Bazar</b></span><br>
+      <span class="logo__mark"><svg class="lily" viewBox="0 0 48 48" aria-hidden="true"><g fill="#fff"><path d="M24 34C16 25 16 14 24 6 32 14 32 25 24 34Z" opacity=".5" transform="rotate(-70 24 34)"/><path d="M24 34C16 25 16 14 24 6 32 14 32 25 24 34Z" opacity=".5" transform="rotate(70 24 34)"/><path d="M24 34C20 25 21 15 24 8 27 15 28 25 24 34Z" transform="rotate(-46 24 34)"/><path d="M24 34C20 25 21 15 24 8 27 15 28 25 24 34Z" transform="rotate(-23 24 34)"/><path d="M24 34C20 25 21 15 24 8 27 15 28 25 24 34Z"/><path d="M24 34C20 25 21 15 24 8 27 15 28 25 24 34Z" transform="rotate(23 24 34)"/><path d="M24 34C20 25 21 15 24 8 27 15 28 25 24 34Z" transform="rotate(46 24 34)"/></g><circle cx="24" cy="31.5" r="3" fill="#f5a623"/></svg></span>
+      <span><span class="logo__text">Amaar<b>Bazaar</b></span><br>
       <span class="nav__tagline" data-i18n="brand.tagline">Bangladesh's Marketplace</span></span>
     </a>
     <nav class="nav__links">
       <a href="browse.html" class="nav__link" data-i18n="nav.browse">Browse</a>
-      <a href="index.html#categories" class="nav__link" data-i18n="nav.categories">Categories</a>
+      <div class="nav__cats">
+        <a href="index.html#categories" class="nav__link" data-i18n="nav.categories">Categories</a><span class="caret"> ▾</span>
+        <div class="mega" id="megaPanel"></div>
+      </div>
       <a href="index.html#how" class="nav__link" data-i18n="nav.how">How it works</a>
+      <a href="browse.html?fav=1" class="nav__link" data-i18n="nav.saved">❤ Saved</a>
     </nav>
     <div class="nav__actions">
       <button class="lang-toggle" data-lang-toggle>🌐 <span data-i18n="lang.toggle">বাংলা</span></button>
@@ -51,34 +56,39 @@
     <div class="post-form">
       <div class="field">
         <label data-i18n="post.f_title">Ad title</label>
-        <input type="text" required data-i18n-ph="post.f_title_ph" placeholder="e.g. Honda CB Hornet 2022, fresh condition">
+        <input id="pTitle" type="text" required data-i18n-ph="post.f_title_ph" placeholder="e.g. Honda CB Hornet 2022, fresh condition">
       </div>
       <div class="field-row">
         <div class="field">
           <label data-i18n="post.f_cat">Category</label>
-          <select required>
-            <option value="vehicles" data-i18n="cat.vehicles">Vehicles</option>
-            <option value="property" data-i18n="cat.property">Property</option>
-            <option value="forsale" data-i18n="cat.forsale">For Sale</option>
-            <option value="jobs" data-i18n="cat.jobs">Jobs</option>
-            <option value="services" data-i18n="cat.services">Services</option>
-            <option value="electronics" data-i18n="cat.electronics">Electronics</option>
-            <option value="pets" data-i18n="cat.pets">Pets</option>
-            <option value="community" data-i18n="cat.community">Community</option>
-          </select>
+          <select required id="postCat"></select>
         </div>
         <div class="field">
           <label data-i18n="post.f_price">Price (৳)</label>
-          <input type="number" min="0" required placeholder="৳ 0">
+          <input id="pPrice" type="number" min="0" required placeholder="৳ 0">
         </div>
       </div>
       <div class="field">
         <label data-i18n="post.f_desc">Description</label>
-        <textarea rows="5" required data-i18n-ph="post.f_desc_ph" placeholder="Describe your item…"></textarea>
+        <textarea id="pDesc" rows="5" data-i18n-ph="post.f_desc_ph" placeholder="Describe your item…"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label data-i18n="post.f_loc">Location</label>
+          <div class="loc-field">
+            <input id="pLoc" type="text" required data-citylist data-i18n-ph="post.f_loc_ph" placeholder="Start typing a city…">
+            <button type="button" class="geo-btn" data-geo data-target="#pLoc" title="Use my location" aria-label="Use my location">📍</button>
+          </div>
+          <span class="field-hint" data-i18n="post.loc_hint">Pick from the list or type your own area.</span>
+        </div>
+        <div class="field">
+          <label data-i18n="post.f_email">Email (for confirmation)</label>
+          <input id="pEmail" type="email" required placeholder="you@example.com">
+        </div>
       </div>
       <div class="field">
-        <label data-i18n="post.f_loc">Location</label>
-        <input type="text" required data-i18n-ph="post.f_loc_ph" placeholder="e.g. Dhanmondi, Dhaka">
+        <label data-i18n="post.f_phone">Phone number (shown to buyers)</label>
+        <input id="pPhone" type="tel" required inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
       </div>
       <div class="field">
         <label data-i18n="post.f_photo">Photos</label>
@@ -87,6 +97,15 @@
           <p data-i18n="post.f_photo_hint">Drag photos here or click to upload (up to 8)</p>
         </div>
         <input type="file" id="photoInput" accept="image/*" multiple hidden>
+        <div class="post-preview" id="postPreview" style="display:none"></div>
+      </div>
+      <div class="field">
+        <label data-i18n="post.f_video">Video (optional)</label>
+        <div class="dropzone dropzone--video" id="videozone">
+          <div class="dropzone__icon">🎬</div>
+          <p data-i18n="post.f_video_hint">Add a short video clip (max 12 MB)</p>
+        </div>
+        <input type="file" id="videoInput" accept="video/*" hidden>
       </div>
     </div>
 
@@ -127,17 +146,14 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn--primary btn--block btn--lg" id="postSubmit" style="margin-top:1.4rem" data-i18n="post.submit">Publish ad</button>
+        <div id="postError" class="auth-error" style="margin-top:.8rem"></div>
+        <button type="submit" class="btn btn--primary btn--block btn--lg" id="postSubmit" style="margin-top:.4rem" data-i18n="post.submit">Publish ad</button>
       </div>
     </aside>
   </form>
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer__bottom"><span data-i18n="foot.rights">© 2026 AmaarBazar. All rights reserved. Made in Bangladesh 🇧🇩</span></div>
-  </div>
-</footer>
+<footer class="footer" data-full-footer></footer>
 
 <!-- ===== PAYMENT MODAL ===== -->
 <div class="modal" id="payModal">
@@ -201,13 +217,40 @@
       </div>
       <h3 data-i18n="pay.success_t">Payment successful!</h3>
       <p data-i18n="pay.success_d">Your ad is now boosted and live.</p>
-      <button class="btn btn--primary btn--lg" id="paySuccessBtn" data-i18n="pay.success_btn">Great, done</button>
+      <p id="paySuccessEmail" class="pay-email-note"></p>
+      <button class="btn btn--primary btn--lg" id="paySuccessBtn" data-i18n="pay.success_btn">View my ad</button>
     </div>
   </div>
 </div>
 
-<script src="js/i18n.js"></script>
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
+<!-- ===== POST SUCCESS MODAL ===== -->
+<div class="modal" id="postSuccess">
+  <div class="modal__overlay"></div>
+  <div class="modal__panel">
+    <button class="modal__close" id="psClose" aria-label="Close">✕</button>
+    <div class="pay-success" style="padding-bottom:1.4rem">
+      <div class="pay-success__check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3 data-i18n="post.success_t">Your ad is live! 🎉</h3>
+      <p data-i18n="post.success_d">It’s now visible to buyers across Bangladesh.</p>
+      <div class="post-success__card">
+        <div><span data-i18n="post.success_ad">Ad</span>: <strong id="psTitle"></strong></div>
+        <div><span data-i18n="post.success_ref">Reference</span>: <strong id="psRef"></strong></div>
+        <div class="post-success__email">📧 <span data-i18n="post.success_email">Confirmation sent to</span> <strong id="psEmail"></strong></div>
+      </div>
+      <div class="modal-actions" style="display:flex;gap:.8rem;margin-top:1.4rem">
+        <a id="psView" href="browse.html" class="btn btn--primary btn--block"><span data-i18n="post.success_view">View my ad</span></a>
+        <button id="psAnother" class="btn btn--outline btn--block" data-i18n="post.success_another">Post another</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/i18n.js?v=8"></script>
+<script src="js/data.js?v=8"></script>
+<script src="js/store.js?v=8"></script>
+<script src="js/auth.js?v=8"></script>
+<script src="js/app.js?v=8"></script>
 </body>
 </html>
