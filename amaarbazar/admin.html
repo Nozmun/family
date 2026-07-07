@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Admin Dashboard — AmaarBazaar</title>
+<meta name="description" content="AmaarBazaar Administrator Dashboard">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="css/admin.css?v=8">
+</head>
+<body>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal-overlay active">
+  <div class="modal-panel">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" class="btn">Sign In</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </div>
+</div>
+
+<!-- Dashboard (hidden until login) -->
+<div id="dashboard" class="dashboard hidden">
+  <nav class="admin-nav">
+    <div class="admin-nav__brand">
+      <h3>AmaarBazaar Admin</h3>
+    </div>
+    <ul class="admin-nav__menu">
+      <li><a href="index.html" class="nav-link nav-link--site">← View Site / Home</a></li>
+      <li><a href="#" data-action="section" data-section="stats" class="nav-link active">Dashboard</a></li>
+      <li><a href="#" data-action="section" data-section="users" class="nav-link">User Management</a></li>
+      <li><a href="#" data-action="section" data-section="listings" class="nav-link">Manage Listings</a></li>
+      <li><a href="#" data-action="section" data-section="categories" class="nav-link">Categories</a></li>
+      <li><a href="#" data-action="section" data-section="audit" class="nav-link">Audit Log</a></li>
+      <li><a href="#" data-action="section" data-section="settings" class="nav-link">Settings</a></li>
+      <li><a href="#" data-action="logout" class="nav-link logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <main class="admin-content">
+    <!-- Stats Section -->
+    <section id="stats" class="section active">
+      <h2>Dashboard Overview</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Listings</h3>
+          <p class="stat-value" id="statListings">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Active Users</h3>
+          <p class="stat-value" id="statUsers">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Revenue</h3>
+          <p class="stat-value" id="statRevenue">৳0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Categories</h3>
+          <p class="stat-value" id="statCategories">0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Listings Section -->
+    <section id="listings" class="section hidden">
+      <h2>Manage Listings</h2>
+      <div class="user-actions">
+        <button class="btn btn-primary" data-action="addListing">+ Add Listing</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Location</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="listingsTable">
+          <tr><td colspan="6">No listings to display</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="section hidden">
+      <h2>Manage Categories</h2>
+      <button class="btn" data-action="addCategory">+ Add Category</button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Icon</th>
+            <th>Listings</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="categoriesTable">
+          <tr><td colspan="4">No categories to display</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Users Section -->
+    <section id="users" class="section hidden">
+      <h2>User Management</h2>
+      <div class="user-actions">
+        <button class="btn btn-primary" data-action="createUser">+ Create New User</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Last Login</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable">
+          <tr><td colspan="7">Loading users...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Create/Edit User Modal -->
+    <div id="userModal" class="modal-overlay hidden">
+      <div class="modal-panel">
+        <h3 id="userModalTitle">Create New User</h3>
+        <form id="userForm">
+          <input type="hidden" id="userId">
+          <label>Username</label>
+          <input type="text" id="userUsername" placeholder="username" required>
+          <label>Email</label>
+          <input type="email" id="userEmail" placeholder="user@example.com" required>
+          <label>Password</label>
+          <input type="password" id="userPassword" placeholder="Enter password" required>
+          <label>Role</label>
+          <select id="userRole" required>
+            <option value="user">User (Seller)</option>
+            <option value="moderator">Moderator</option>
+            <option value="admin">Admin</option>
+          </select>
+          <label>
+            <input type="checkbox" id="userActive" checked>
+            Active Account
+          </label>
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-primary">Save User</button>
+            <button type="button" class="btn btn-secondary" data-action="closeUser">Cancel</button>
+          </div>
+          <p id="userError" class="error"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Audit Log Section -->
+    <section id="audit" class="section hidden">
+      <h2>Admin Activity Log</h2>
+      <div class="audit-filters">
+        <input type="text" id="auditFilterUser" placeholder="Filter by username...">
+        <select id="auditFilterAction">
+          <option value="">All Actions</option>
+          <option value="login">Login</option>
+          <option value="logout">Logout</option>
+          <option value="user_create">Create User</option>
+          <option value="user_edit">Edit User</option>
+          <option value="user_delete">Delete User</option>
+          <option value="listing_delete">Delete Listing</option>
+          <option value="category_edit">Edit Category</option>
+          <option value="settings_change">Change Settings</option>
+        </select>
+        <button class="btn btn-primary" data-action="addAuditNote">+ Add Note</button>
+        <button class="btn btn-secondary" data-action="clearAudit">Clear Log</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Admin User</th>
+            <th>Action</th>
+            <th>Details</th>
+            <th>IP Address</th>
+            <th>Status</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody id="auditTable">
+          <tr><td colspan="6">Loading activity log...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings" class="section hidden">
+      <h2>Settings</h2>
+      <div class="settings-panel">
+        <label>Site Title</label>
+        <input type="text" id="siteTitle" placeholder="AmaarBazaar" value="AmaarBazaar">
+        <label>Commission Rate (%)</label>
+        <input type="number" id="commissionRate" min="0" max="100" value="5">
+        <button class="btn" data-action="saveSettings">Save Settings</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+    <!-- Create/Edit Listing Modal -->
+    <div id="listingModal" class="modal-overlay hidden">
+      <div class="modal-panel">
+        <h3 id="listingModalTitle">Add Listing</h3>
+        <form id="listingForm">
+          <input type="hidden" id="listingId">
+          <label>Title</label>
+          <input type="text" id="listingTitle" placeholder="e.g. Toyota Allion 2016" required>
+          <label>Category</label>
+          <select id="listingCat" required></select>
+          <label>Price (৳)</label>
+          <input type="number" id="listingPrice" min="0" placeholder="0" required>
+          <label>Location</label>
+          <input type="text" id="listingLoc" placeholder="e.g. Gulshan, Dhaka" required>
+          <label>Phone (shown to buyers)</label>
+          <input type="tel" id="listingPhone" placeholder="01XXXXXXXXX" maxlength="11">
+          <label>Email (optional)</label>
+          <input type="email" id="listingEmail" placeholder="seller@example.com">
+          <label><input type="checkbox" id="listingFeatured"> Featured listing</label>
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-primary">Save Listing</button>
+            <button type="button" class="btn btn-secondary" data-action="closeListing">Cancel</button>
+          </div>
+          <p id="listingError" class="error"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Create/Edit Category Modal -->
+    <div id="catModal" class="modal-overlay hidden">
+      <div class="modal-panel">
+        <h3 id="catModalTitle">Add Category</h3>
+        <form id="catForm">
+          <input type="hidden" id="catId">
+          <label>Name</label>
+          <input type="text" id="catName" placeholder="e.g. Electric Scooters" required>
+          <label>Icon (emoji)</label>
+          <input type="text" id="catIcon" placeholder="🛴" maxlength="4">
+          <label>Group</label>
+          <select id="catGroup" required></select>
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-primary">Save Category</button>
+            <button type="button" class="btn btn-secondary" data-action="closeCat">Cancel</button>
+          </div>
+          <p id="catError" class="error"></p>
+        </form>
+      </div>
+    </div>
+
+<script src="js/i18n.js?v=8"></script>
+<script src="js/data.js?v=8"></script>
+<script src="js/store.js?v=8"></script>
+<script src="js/admin.js?v=8"></script>
+</body>
+</html>
