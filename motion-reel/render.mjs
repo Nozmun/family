@@ -46,7 +46,7 @@ const ff = spawn(FFMPEG, [
   '-y', '-loglevel', 'error',
   '-f', 'image2pipe', '-framerate', '60', '-c:v', 'png', '-i', '-',
   ...(existsSync(wav) ? ['-i', wav, '-c:a', 'aac', '-b:a', '256k', '-shortest'] : []),
-  '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p',
+  '-c:v', 'libx264', '-preset', 'slow', '-crf', '21', '-pix_fmt', 'yuv420p',
   '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709',
   '-movflags', '+faststart', join(here, 'reel.mp4'),
 ], { stdio: ['pipe', 'inherit', 'inherit'] });
