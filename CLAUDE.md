@@ -15,7 +15,9 @@ The repository currently contains only a `README.md` placeholder. No source code
 ```
 family/
 ├── README.md      # Project title placeholder
-└── CLAUDE.md      # This file
+├── CLAUDE.md      # This file
+├── .claude/commands/  # Saved prompts as Claude Code slash commands
+└── docs/prompts.md    # What each saved prompt does and how to use it
 ```
 
 ## Development Branch
