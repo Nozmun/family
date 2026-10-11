@@ -74,3 +74,13 @@ No CI configuration exists yet. When adding CI (GitHub Actions recommended):
 - Keep changes minimal and focused on what was explicitly requested
 - Always read a file before editing it
 - Do not push to `master` directly; use feature branches
+
+## `mm/` — market-making research (simulation/paper only)
+
+Self-contained Python project (uv, pytest, ruff) separate from the static website at the repo root.
+Run from `mm/`: `uv run pytest`, `uv run ruff check .`.
+Gate 0 tooling: `uv run python -m mm.capture.kraken --symbols "SOL/USD" --seconds 3600` then
+`uv run python -m mm.report data/*.jsonl.gz --maker-fee-bps <your actual fee>`.
+Rules: no live order placement; never commit `data/` or keys; risk limits are deterministic and never
+loosened by any model; the slow (LLM) layer may only tighten risk. Binance returns HTTP 451 from the
+cloud container, so capture uses Kraken (other reachable public venues: Coinbase, OKX, Gemini, Binance.US).
